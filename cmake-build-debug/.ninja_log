@@ -1,0 +1,11 @@
+# ninja log v6
+2	200	1747829391943701256	CMakeFiles/lab3.dir/trees_structs.cpp.o	9eb35dc58843096a
+3	611	1747829391944097504	CMakeFiles/lab3.dir/ind_funcs.cpp.o	c72a58ad083c28eb
+3	625	1747829391943953172	CMakeFiles/lab3.dir/utils.cpp.o	3af753d710cae0cb
+6	485	1747829470837174870	CMakeFiles/lab3.dir/main.cpp.o	777072c55e646233
+5	534	1747829545062127403	CMakeFiles/lab3.dir/utils.cpp.o	3af753d710cae0cb
+7	560	1747829593771982613	CMakeFiles/lab3.dir/ind_funcs.cpp.o	c72a58ad083c28eb
+6	569	1747829593771498407	CMakeFiles/lab3.dir/main.cpp.o	777072c55e646233
+6	572	1747829593771846322	CMakeFiles/lab3.dir/utils.cpp.o	3af753d710cae0cb
+9	554	1747829655774735613	CMakeFiles/lab3.dir/utils.cpp.o	3af753d710cae0cb
+554	602	1747829656320159259	lab3	403be9e72fb6ce26
