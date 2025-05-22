@@ -1,3 +1,0 @@
-/Users/egorbaranov/Desktop/CLion/lab3/cmake-build-debug/CMakeFiles/lab3.dir
-/Users/egorbaranov/Desktop/CLion/lab3/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/egorbaranov/Desktop/CLion/lab3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
