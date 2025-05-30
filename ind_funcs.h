@@ -7,24 +7,20 @@
 #include "utils.h"
 
 // 1. Определить количество листьев на заданном уровне дерева.
-template <typename T>
-void count_nodes_level (T* root);
+
+void count_nodes_level (RBTree* root);
 
 // 3. Удалить все листья на заданном уровне дерева.
-
-template <typename T>
-void delete_all_nodes_level (T** root);
+void delete_all_nodes_level (RBTree** root);
 
 // 5. Удалить все узлы с заданным ключом (вместе с поддеревьями, если есть).
-
-template <typename T>
-void delete_all_nodes_key (T** root);
+void delete_all_nodes_key (RBTree** root);
 
 // 6. Отпечатать содержимое всех узлов, лежащих на пути между двумя узлами, заданными своими ключевыми признаками.
-
-template <typename T>
-void print_all_between (T* root);
+void print_all_between (RBTree* root);
 
 //егор заман тоже
+// void
+// void
 
 #endif

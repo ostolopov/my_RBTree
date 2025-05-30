@@ -1,46 +1,54 @@
 #include <iostream>
 
 #include "trees_structs.h"
+#include "ind_funcs.h"
 #include "utils.h"
 
 int main() {
+    int data;
     int case_number;
-    std::cout << "(1) Работа с однонаправленным линейным списком без головного элемента.\n"
-            "(2) Работа с однонаправленным линейным списком с головным элементом.\n"
-            "(3) Работа с симметричным линейным списком без головного элемента.\n"
-            "(4) Работа с симметричным линейным списком с головным элементом.\n"
-            "(5) Работа с однонаправленным циклическим списком без головного элемента.\n"
-            "(6) Работа с однонаправленным циклическим списком с головным элементом.\n";
-    while (get_int(&case_number, 0 ,6) != 0  && case_number != 0) {
+    RBTree* root = nullptr;
+    std::cout << "(1) Создание пустого дерева.\n"
+                 "(2) Обход дерева post pre in BFS\n"
+                 "(3) Включение элемента в дерево\n"
+                 "(4) Удаление элемента из дерева\n"
+                 "(5) Удаление всего дерева\n"
+                 "(6) Вывод дерева на экран\n";
+    while (get_int(&case_number, 0 ,11) != 0 && case_number != 0) {
         switch (case_number) {
             case 1:
-                universal_case <RBTree> ();
-                break;
+                root = create_tree();
+            break;
             case 2:
-                universal_case <RBTreeH> ();
-                break;
+                print_postorder (root);
+            print_preorder(root);
+            print_inorder(root);
+            print_BFS(root);
+            break;
             case 3:
-                universal_case <BinTree> ();
-                break;
+                insert_node(&root));
+            break;
             case 4:
-                universal_case <BinTreeH> ();
-                break;
+                delete_node(&root, data);
+            break;
             case 5:
-                universal_case <BalTree> ();
-                break;
+                delete_tree(&root);
+            break;
             case 6:
-                universal_case <BalTreeH> ();
-                break;
+                print_tree(root);
+            break;
             default:
-                std::cout << "Число вышло за разрешенный диапазон. Попробуйте еще раз!\n";
+                std::cout << "Число вне диапазона\n";
             break;
         }
-        std::cout << "(1) Работа с однонаправленным линейным списком без головного элемента.\n"
-            "(2) Работа с однонаправленным линейным списком с головным элементом.\n"
-            "(3) Работа с симметричным линейным списком без головного элемента.\n"
-            "(4) Работа с симметричным линейным списком с головным элементом.\n"
-            "(5) Работа с однонаправленным циклическим списком без головного элемента.\n"
-            "(6) Работа с однонаправленным циклическим списком с головным элементом.\n";
+        std::cout << "(1) Создание пустого дерева.\n"
+                 "(2) Обход дерева post pre in BFS\n"
+                 "(3) Включение элемента в дерево\n"
+                 "(4) Удаление элемента из дерева\n"
+                 "(5) Удаление всего дерева\n"
+                 "(6) Вывод дерева на экран\n";
     }
+    delete_tree(&root);
     return 0;
 }
+

@@ -7,8 +7,4 @@
 
 int get_int(int *number, int min, int max);
 
-
-template <typename T>
-void universal_case();
-
 #endif
