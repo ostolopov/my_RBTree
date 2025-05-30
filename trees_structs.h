@@ -33,5 +33,7 @@ void replace (RBTree*& root, RBTree* u, RBTree* v);
 void delete_fixup (RBTree*& root, RBTree* x);
 void delete_node (RBTree*& root, int key);
 void delete_tree (RBTree*& root);
-void print_tree (RBTree* root);
+//void print_tree (RBTree* root);
+
+
 #endif
