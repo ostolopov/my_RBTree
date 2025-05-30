@@ -28,12 +28,13 @@ int main() {
                 root = create_tree();
                 break;
             case 2:
+                std::cout << "post: ";
                 print_postorder(root);
-                std::cout << std::endl;
+                std::cout << std::endl << "pre: ";
                 print_preorder(root);
-                std::cout << std::endl;
+                std::cout << std::endl << "in: ";
                 print_inorder(root);
-                std::cout << std::endl;
+                std::cout << std::endl << "BFS: ";
                 print_BFS(root);
                 std::cout << std::endl;
                 break;

@@ -7,14 +7,14 @@ RBTree *create_tree  () {
 void print_inorder (RBTree* root) {
     if (root) {
         print_inorder(root->left);
-        std::cout <<"k:" << root->key << " d:" << root->data << " c:" << root->color << " -> ";
+        std::cout <<"k:" << root->key << " d:" << root->data << " c:" << (root->color ? "B" : "R") << " -> ";
         print_inorder(root->right);
     }
 }
 
 void print_preorder (RBTree* root) {
     if (root) {
-        std::cout <<"k:" << root->key << " d:" << root->data << " c:" << root->color << " -> ";
+        std::cout <<"k:" << root->key << " d:" << root->data << " c:" << (root->color ? "B" : "R") << " -> ";
         print_preorder(root->left);
         print_preorder(root->right);
     }
@@ -24,7 +24,7 @@ void print_postorder (RBTree* root) {
     if (root) {
         print_postorder(root->left);
         print_postorder(root->right);
-        std::cout <<"k:" << root->key << " d:" << root->data << " c:" << root->color << " -> ";
+        std::cout <<"k:" << root->key << " d:" << root->data << " c:" << (root->color ? "B" : "R") << " -> ";
     }
 }
 
@@ -34,7 +34,7 @@ void print_BFS(RBTree* root) {
     q.push(root);
     while (!q.empty()) {
         RBTree* node = q.front(); q.pop();
-        std::cout <<"k:" << root->key << " d:" << root->data << " c:" << root->color << " -> ";
+        std::cout <<"k:" << root->key << " d:" << root->data << " c:" << (root->color ? "B" : "R") << " -> ";
         if (node->left) q.push(node->left);
         if (node->right) q.push(node->right);
     }
