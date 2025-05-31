@@ -47,30 +47,33 @@ void delete_leaf_nodes_at_level(RBTree*& root, int lvl) {
 // 5. Удалить все узлы с заданным ключом (вместе с поддеревьями, если есть). (петя)
 void delete_all_nodes_with_key(RBTree*& root, int key) {
     if (!root) return;
-
-    std::function<void(RBTree*&)> delete_subtree = [&](RBTree*& node) {
-        if (!node) return;
-        delete_subtree(node->left);
-        delete_subtree(node->right);
-        delete node;
-        node = nullptr;
-    };
-
+    std::vector<RBTree*> nodes_to_delete;
     std::queue<RBTree*> q;
     q.push(root);
     while (!q.empty()) {
         RBTree* node = q.front(); q.pop();
+        if (node->key == key) {
+            nodes_to_delete.push_back(node);
+        }
         if (node->left) q.push(node->left);
         if (node->right) q.push(node->right);
-        if (node->key == key) {
-            if (node->parent) {
-                if (node->parent->left == node)
-                    node->parent->left = nullptr;
-                else
-                    node->parent->right = nullptr;
-            }
-            delete_subtree(node);
+    }
+    for (RBTree* node : nodes_to_delete) {
+        if (node->parent) {
+            if (node->parent->left == node)
+                node->parent->left = nullptr;
+            else
+                node->parent->right = nullptr;
         }
+
+        std::function<void(RBTree*)> delete_subtree = [&](RBTree* n) {
+            if (!n) return;
+            delete_subtree(n->left);
+            delete_subtree(n->right);
+            delete n;
+        };
+
+        delete_subtree(node);
     }
 }
 
@@ -88,6 +91,7 @@ RBTree* find_node(RBTree* root, int key) {
 }
 
 void print_all_between(RBTree* root, RBTree* node1, RBTree* node2) {
+
     std::function<bool(RBTree*, RBTree*, std::vector<RBTree*>&)> find_path = [&](RBTree* node, RBTree* target, std::vector<RBTree*>& path) -> bool {
             if (!node) return false;
             path.push_back(node);
@@ -98,6 +102,7 @@ void print_all_between(RBTree* root, RBTree* node1, RBTree* node2) {
             path.pop_back();
             return false;
     };
+
     std::vector<RBTree*> path1, path2;
     if (!find_path(root, node1, path1) || !find_path(root, node2, path2)) {
         std::cout << "Один из узлов не найден\n";
