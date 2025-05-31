@@ -64,17 +64,19 @@ void visualize_tree(RBTree* root) {
         if (node->left) {
             dot_file << "  \"" << node << "\" -> \"" << node->left << "\";\n";
             q.push(node->left);
-        } else {
-            dot_file << "  \"nilL" << node << "\" [label=\"NULL\", shape=circle, width=0.4, height=0.4, color=white, fillcolor=black, fontcolor=white];\n";
-            dot_file << "  \"" << node << "\" -> \"nilL" << node << "\";\n";
         }
+        // else {
+        //     dot_file << "  \"nilL" << node << "\" [label=\"NULL\", shape=circle, width=0.4, height=0.4, color=white, fillcolor=black, fontcolor=white];\n";
+        //     dot_file << "  \"" << node << "\" -> \"nilL" << node << "\";\n";
+        // }
         if (node->right) {
             dot_file << "  \"" << node << "\" -> \"" << node->right << "\";\n";
             q.push(node->right);
-        } else {
-            dot_file << "  \"nilR" << node << "\" [label=\"NULL\", shape=circle, width=0.4, height=0.4, color=white, fillcolor=black, fontcolor=white];\n";
-            dot_file << "  \"" << node << "\" -> \"nilR" << node << "\";\n";
         }
+        // else {
+        //     dot_file << "  \"nilR" << node << "\" [label=\"NULL\", shape=circle, width=0.4, height=0.4, color=white, fillcolor=black, fontcolor=white];\n";
+        //     dot_file << "  \"" << node << "\" -> \"nilR" << node << "\";\n";
+        // }
     }
     dot_file << "}\n";
     dot_file.close();
