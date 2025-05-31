@@ -147,27 +147,6 @@ int count_non_leaf_nodes_at_level(RBTree* root, int lvl) {
 
 //12.Определить, являются ли два поддерева, заданные своими корнями (с помощью значений ключевого признака) тождественными по структуре (заман)
 
-// void are_tree_equal(RBTree* root, int key1, int key2) {
-//     std::function<bool(RBTree*, RBTree*)> are_trees_equal = [&](RBTree* a, RBTree* b) -> bool {
-//         if (!a && !b) return true;
-//         if (!a || !b) return false;
-//         return (a->key == b->key &&
-//                 are_trees_equal(a->left, b->left) &&
-//                 are_trees_equal(a->right, b->right));
-//     };
-//
-//     RBTree* node1 = find_node(root, key1);
-//     RBTree* node2 = find_node(root, key2);
-//     if (!node1 || !node2) {
-//         std::cout << "Один из узлов не найден.\n";
-//         return;
-//     }
-//     if (are_trees_equal(node1, node2))
-//         std::cout << "Поддеревья тождественны.\n";
-//     else
-//         std::cout << "Поддеревья НЕ тождественны.\n";
-// }
-
 void are_tree_equal(RBTree* root, int key1, int key2) {
 
     std::function<bool(RBTree*, RBTree*)> are_trees_equal = [&](RBTree* a, RBTree* b) -> bool {
