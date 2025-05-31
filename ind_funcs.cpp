@@ -1,6 +1,6 @@
 #include "ind_funcs.h"
 
-// 1. Определить количество листьев на заданном уровне дерева.
+// 1. Определить количество листьев на заданном уровне дерева. (андрей)
 int count_leaf_nodes_at_level(RBTree* root, int lvl) {
     if (!root) return 0;
     std::queue<std::pair<RBTree*, int>> q;
@@ -20,7 +20,7 @@ int count_leaf_nodes_at_level(RBTree* root, int lvl) {
     return count;
 }
 
-// 3. Удалить все листья на заданном уровне дерева.
+// 3. Удалить все листья на заданном уровне дерева. (соня)
 void delete_leaf_nodes_at_level(RBTree*& root, int lvl) {
     if (!root) return;
     std::queue<std::pair<RBTree*, int>> q;
@@ -44,7 +44,7 @@ void delete_leaf_nodes_at_level(RBTree*& root, int lvl) {
     }
 }
 
-// 5. Удалить все узлы с заданным ключом (вместе с поддеревьями, если есть).
+// 5. Удалить все узлы с заданным ключом (вместе с поддеревьями, если есть). (петя)
 void delete_all_nodes_with_key(RBTree*& root, int key) {
     if (!root) return;
     std::function<void(RBTree*&)> delete_subtree = [&](RBTree*& node) {
@@ -72,7 +72,7 @@ void delete_all_nodes_with_key(RBTree*& root, int key) {
     }
 }
 
-// 6. Отпечатать содержимое всех узлов, лежащих на пути между двумя узлами, заданными своими ключевыми признаками.
+// 6. Отпечатать содержимое всех узлов, лежащих на пути между двумя узлами, заданными своими ключевыми признаками. (егор б)
 RBTree* find_node(RBTree* root, int key) {
     if (!root) return nullptr;
     if (root->key == key)
@@ -119,7 +119,7 @@ void print_all_between(RBTree* root, RBTree* node1, RBTree* node2) {
 }
 
 
-// 9. Определить количество узлов (не листьев) бинарного дерева (егор)
+// 9. Определить количество узлов (не листьев) бинарного дерева (егор п )
 int count_non_leaf_nodes_at_level(RBTree* root, int lvl) {
     if (!root) return 0;
     std::queue<std::pair<RBTree*, int>> q;
@@ -141,15 +141,6 @@ int count_non_leaf_nodes_at_level(RBTree* root, int lvl) {
 
 //12.Определить, являются ли два поддерева, заданные своими корнями (с помощью значений ключевого признака) тождественными по структуре (заман)
 void are_tree_equal(RBTree* root, int key1, int key2) {
-    std::function<RBTree*(RBTree*, int)> find_node = [&](RBTree* node, int key) -> RBTree* {
-        if (!node || node->key == key)
-            return node;
-        RBTree* found = find_node(node->left, key);
-        if (!found)
-            found = find_node(node->right, key);
-
-        return found;
-    };
     std::function<bool(RBTree*, RBTree*)> are_trees_equal = [&](RBTree* a, RBTree* b) -> bool {
         if (!a && !b) return true;
         if (!a || !b) return false;
@@ -157,9 +148,9 @@ void are_tree_equal(RBTree* root, int key1, int key2) {
                 are_trees_equal(a->left, b->left) &&
                 are_trees_equal(a->right, b->right));
     };
+
     RBTree* node1 = find_node(root, key1);
     RBTree* node2 = find_node(root, key2);
-
     if (!node1 || !node2) {
         std::cout << "Один из узлов не найден.\n";
         return;
