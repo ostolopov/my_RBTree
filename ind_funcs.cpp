@@ -111,7 +111,7 @@ void print_all_between(RBTree* root, RBTree* node1, RBTree* node2) {
     int i = 0;
     while (i < path1.size() && i < path2.size() && path1[i] == path2[i])
         i++;
-    std::set<int> printed_keys;
+    std::unordered_set<int> printed_keys;
     std::cout << "Узлы на пути между ключами " << node1->key << " и " << node2->key << ":\n";
     for (int j = i - 1; j < path1.size(); j++) {
         if (printed_keys.insert(path1[j]->key).second) {
