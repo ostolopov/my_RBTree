@@ -25,7 +25,7 @@ int get_int(int &number, int min, int max) {
 RBTree* generate_random_tree(int number) {
     RBTree* root = nullptr;
     srand(time(0));
-    std::cout << "Вставляем узлы:\n";
+    std::cout << "Вставляем узлы.\n";
     for (int i = 0; i < number; ++i) {
         int key = rand() % 10000 + 1;
         int data = rand() % 10000 + 1;

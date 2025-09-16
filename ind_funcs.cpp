@@ -9,9 +9,8 @@ int count_leaf_nodes_at_level(RBTree* root, int lvl) {
     while (!q.empty()) {
         auto [node, level] = q.front(); q.pop();
         if (level == lvl) {
-            if (!node->left && !node->right) {
+            if (!node->left && !node->right)
                 count++;
-            }
         } else if (level < lvl) {
             if (node->left) q.push({node->left, level + 1});
             if (node->right) q.push({node->right, level + 1});
@@ -102,6 +101,7 @@ void print_all_between(RBTree* root, RBTree* node1, RBTree* node2) {
             path.pop_back();
             return false;
     };
+
 
     std::vector<RBTree*> path1, path2;
     if (!find_path(root, node1, path1) || !find_path(root, node2, path2)) {

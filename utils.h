@@ -6,6 +6,7 @@
 #include <sstream>
 #include <cstdlib>
 #include <ctime>
+#include <climits>
 
 #include "trees_structs.h"
 #include "ind_funcs.h"
